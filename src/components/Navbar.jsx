@@ -90,7 +90,7 @@ export default function Navbar() {
                 {/* Mobile Menu Toggle & CTA */}
                 <div className="flex items-center gap-2">
                     <motion.a
-                        href="https://wa.me/51921636936?text=Quiero%20pedir%20una%20orden"
+                        href="https://wa.me/51921636936?text=Me%20gustaria%20encargar%20una%20orden%20porfavor%20!!!"
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
