@@ -69,10 +69,21 @@ function App() {
         <div className="min-w-full h-full snap-start">
           <ProductSection
             id="kekes"
-            title="Kekes & Galletas"
+            title="Kekes"
             subtitle="Para compartir"
-            products={[...kekes, ...galletas]} // Combining for a fuller section
+            products={kekes}
             theme="light"
+          />
+        </div>
+
+        {/* Section: Galletas */}
+        <div className="min-w-full h-full snap-start">
+          <ProductSection
+            id="galletas"
+            title="Galletas"
+            subtitle="Crocantes y duces"
+            products={galletas}
+            theme="dark"
           />
         </div>
 

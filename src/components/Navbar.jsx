@@ -25,7 +25,7 @@ export default function Navbar() {
             { root: null, threshold: 0.5 }
         );
 
-        const sections = ['hero', 'mini-antojos', 'cuchareables', 'kekes', 'contact'];
+        const sections = ['hero', 'mini-antojos', 'cuchareables', 'kekes', 'galletas', 'contact'];
         sections.forEach(id => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
@@ -38,6 +38,7 @@ export default function Navbar() {
         { name: 'Mini Antojos', id: 'mini-antojos' },
         { name: 'Cuchareables', id: 'cuchareables' },
         { name: 'Kekes', id: 'kekes' },
+        { name: 'Galletas', id: 'galletas' },
         { name: 'Contacto', id: 'contact' },
     ];
 
