@@ -71,7 +71,7 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
     const titleClass = isDark ? "text-accent" : "text-primary";
 
     return (
-        <section id={id} className={`w-screen h-screen flex flex-col justify-center px-8 md:px-20 relative overflow-hidden ${bgClass}`}>
+        <section id={id} className={`w-screen min-h-[100svh] h-screen flex flex-col justify-center px-4 md:px-20 relative overflow-hidden ${bgClass}`}>
             {/* Background Decor */}
             <div className="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -80,9 +80,9 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
             </div>
 
             <div className="z-10 w-full max-w-[1400px] mx-auto h-[85%] flex flex-col">
-                <div className="mb-8 pl-4">
-                    {subtitle && <span className="font-script text-2xl opacity-80 block mb-2">{subtitle}</span>}
-                    <h2 className={`font-display text-5xl md:text-7xl ${titleClass} inline-block relative`}>
+                <div className="mb-4 md:mb-8 pl-2 md:pl-4">
+                    {subtitle && <span className="font-script text-xl md:text-2xl opacity-80 block mb-2">{subtitle}</span>}
+                    <h2 className={`font-display text-4xl md:text-7xl ${titleClass} inline-block relative leading-tight`}>
                         {title}
                         {/* Underline Decor */}
                         <span className="absolute -bottom-2 left-0 w-1/3 h-1.5 bg-accent/30 rounded-full"></span>
@@ -90,7 +90,7 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
                 </div>
 
                 {/* Vertical Scroll Grid Area for Cards */}
-                <div className="product-grid-scroll flex-grow overflow-y-auto overflow-x-hidden pb-12 px-4 no-scrollbar">
+                <div className="product-grid-scroll flex-grow overflow-y-auto overflow-x-hidden pb-12 px-0 md:px-4 no-scrollbar">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20 pb-20 max-w-[1200px] mx-auto">
                         {products.map((p, index) => (
                             <div key={index} className="flex justify-center">
