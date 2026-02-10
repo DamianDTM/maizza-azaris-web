@@ -79,7 +79,7 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
                 </svg>
             </div>
 
-            <div className="z-10 w-full max-w-[1400px] mx-auto h-[85%] flex flex-col">
+            <div className="z-10 w-full max-w-[1400px] mx-auto h-full md:h-[90%] flex flex-col pt-28 md:pt-12">
                 <div className="mb-4 md:mb-8 pl-2 md:pl-4 flex flex-col md:flex-row md:items-baseline md:gap-6">
                     <h2 className={`font-display text-4xl md:text-7xl ${titleClass} inline-block relative leading-tight`}>
                         {title}
