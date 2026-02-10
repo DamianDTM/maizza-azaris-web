@@ -72,26 +72,26 @@ export default function Hero() {
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
-                whileHover={{ scale: 1.05 }}
-                className="absolute bottom-0 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
+                whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                className="absolute -bottom-8 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
             >
                 {/* Speech Bubble */}
                 <motion.div
-                    whileHover={{ y: -5 }}
-                    className="mr-8 mb-4 bg-white/90 backdrop-blur-md text-secondary px-6 py-4 rounded-2xl rounded-tr-sm shadow-xl max-w-[200px] md:max-w-[250px] relative transform origin-bottom-right transition-all duration-300"
+                    whileHover={{ y: -5, transition: { duration: 0.1 } }}
+                    className="mr-8 mb-2 bg-white text-secondary px-6 py-4 rounded-[2rem] rounded-br-none shadow-xl border-2 border-accent/20 max-w-[200px] md:max-w-[250px] relative transition-all duration-100"
                 >
-                    <p className="font-serif text-sm md:text-base leading-snug">
+                    <p className="font-sans italic text-sm md:text-base leading-snug">
                         ¡También ofrecemos <strong>catering</strong> para tu día especial! ✨
                     </p>
                     {/* Bubble Tail */}
-                    <div className="absolute -bottom-2 right-4 w-4 h-4 bg-white/90 backdrop-blur-md rotate-45 transform translate-x-1/2"></div>
+                    <div className="absolute -bottom-[2px] right-0 w-6 h-6 bg-white border-r-2 border-b-2 border-accent/20 rounded-br-full"></div>
                 </motion.div>
 
                 {/* Cook Image */}
                 <img
                     src={cocineraImg}
                     alt="Nuestra Cocinera"
-                    className="active:animate-bounce w-32 md:w-48 lg:w-56 object-contain drop-shadow-2xl filter brightness-110 contrast-110"
+                    className="w-32 md:w-48 lg:w-56 object-contain drop-shadow-2xl filter brightness-110 contrast-110"
                 />
             </motion.a>
         </section>
