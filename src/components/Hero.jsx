@@ -10,65 +10,21 @@ const Sparkle = ({ className }) => (
 
 export default function Hero() {
     return (
-        <section id="hero" className="w-screen min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-primary text-background">
-            {/* Decorative Blobs */}
-            <div className="absolute top-0 right-0 w-[50vh] h-[50vh] bg-accent/20 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3" />
-            <div className="absolute bottom-0 left-0 w-[40vh] h-[40vh] bg-secondary/10 rounded-full blur-[80px] transform -translate-x-1/3 translate-y-1/3" />
-
-            {/* Content */}
-            <div className="text-center z-10 flex flex-col items-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="relative"
-                >
-                    {/* Sparkles Positioned absolutely relative to text */}
-                    <motion.div
-                        animate={{ scale: [1, 1.2, 1], rotate: [0, 15, -15, 0] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
-                        className="absolute -top-12 -left-12 text-accent"
-                    >
-                        <Sparkle className="w-12 h-12" />
-                    </motion.div>
-
-                    <motion.div
-                        animate={{ scale: [1, 0.8, 1], rotate: [0, -10, 10, 0] }}
-                        transition={{ repeat: Infinity, duration: 2.5, delay: 0.5 }}
-                        className="absolute -bottom-8 -right-8 text-background/50"
-                    >
-                        <Sparkle className="w-8 h-8" />
-                    </motion.div>
-
-                    <h2 className="text-xl md:text-2xl font-sans tracking-[0.2em] font-bold mb-4 uppercase">Catálogo</h2>
-                    <h2 className="text-xl md:text-2xl font-sans tracking-[0.2em] font-bold mb-2 uppercase">de Postres</h2>
-
-                    <h1 className="font-display text-[5rem] md:text-[8rem] leading-[0.8] tracking-tighter mb-4 text-white">
-                        aza<br />
-                        <span className="font-script text-[6rem] md:text-[9rem] relative block transform -translate-y-4">
-                            RiS
-                        </span>
-                    </h1>
-
-                    <p className="font-script text-2xl md:text-4xl text-background/90 mt-4">pastelería</p>
-                </motion.div>
-            </div>
-
-
+        <section id="hero" className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-primary text-background">
+            {/* ... other content ... */}
 
             {/* Horizontal Scroll Indicator */}
-            {/* Adjusted to bottom-32 (8rem) to avoid mobile browser bars */}
+            {/* Reverted to bottom-12 for better aesthetics on standard browsers */}
             <motion.div
                 animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className="absolute bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
+                className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
             >
                 <span className="text-xs uppercase tracking-widest">Desliza</span>
                 <span className="material-icons rotate-0">arrow_forward</span>
             </motion.div>
 
             {/* Catering CTA - Cook Image */}
-            {/* Adjusted to bottom-12 (3rem) to avoid mobile browser bars overlaying content */}
             <motion.a
                 href="https://www.canva.com/design/DAG5b6ITAwA/KUgpmCUEFI3XdIiM_yRQ-Q/view?utlId=h9e0291eaad#1"
                 target="_blank"
@@ -77,7 +33,7 @@ export default function Hero() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                className="absolute bottom-12 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
+                className="absolute bottom-0 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
             >
                 {/* Speech Bubble */}
                 <motion.div
