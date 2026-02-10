@@ -10,10 +10,10 @@ export default function Contact() {
                 {/* Decorative Corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-accent/20 rounded-bl-[100%] pointer-events-none"></div>
 
-                <h2 className="font-display text-3xl md:text-5xl text-primary mb-2 uppercase tracking-widest break-words">Encuéntranos</h2>
-                <h3 className="font-display text-lg md:text-2xl text-secondary mb-8 md:mb-12 uppercase tracking-widest">Como:</h3>
+                <h2 className="font-display text-2xl md:text-5xl text-primary mb-2 uppercase tracking-widest break-words">Nuestras Redes</h2>
+                <h3 className="font-display text-base md:text-2xl text-secondary mb-8 md:mb-12 uppercase tracking-widest">En:</h3>
 
-                <div className="text-2xl md:text-3xl font-bold text-secondary mb-8 break-all">
+                <div className="text-xl md:text-3xl font-bold text-secondary mb-8 break-words text-nowrap">
                     @azaris.pasteleria
                 </div>
 
@@ -32,10 +32,10 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center justify-center bg-secondary text-background px-6 py-3 md:px-8 md:py-4 rounded-full text-lg md:text-xl font-bold shadow-lg w-full max-w-[320px] mx-auto min-w-[280px]"
+                    className="relative flex items-center justify-center bg-secondary text-background px-4 py-3 md:px-8 md:py-4 rounded-full text-lg md:text-xl font-bold shadow-lg w-full max-w-[320px] mx-auto overflow-hidden"
                 >
-                    <span className="material-icons text-xl md:text-2xl absolute left-6 md:left-8">chat</span>
-                    <span className="text-center">921 636 936</span>
+                    <span className="material-icons text-xl md:text-2xl absolute left-4 md:left-8">chat</span>
+                    <span className="text-center truncate w-full px-8">921 636 936</span>
                 </motion.a>
 
                 <p className="mt-8 md:mt-12 text-secondary/60 text-[10px] md:text-xs leading-relaxed px-4">
