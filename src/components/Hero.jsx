@@ -10,7 +10,7 @@ const Sparkle = ({ className }) => (
 
 export default function Hero() {
     return (
-        <section id="hero" className="w-screen h-screen flex items-center justify-center relative overflow-hidden bg-primary text-background">
+        <section id="hero" className="w-screen min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-primary text-background">
             {/* Decorative Blobs */}
             <div className="absolute top-0 right-0 w-[50vh] h-[50vh] bg-accent/20 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3" />
             <div className="absolute bottom-0 left-0 w-[40vh] h-[40vh] bg-secondary/10 rounded-full blur-[80px] transform -translate-x-1/3 translate-y-1/3" />
@@ -57,16 +57,18 @@ export default function Hero() {
 
 
             {/* Horizontal Scroll Indicator */}
+            {/* Adjusted to bottom-32 (8rem) to avoid mobile browser bars */}
             <motion.div
                 animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
+                className="absolute bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
             >
                 <span className="text-xs uppercase tracking-widest">Desliza</span>
                 <span className="material-icons rotate-0">arrow_forward</span>
             </motion.div>
 
             {/* Catering CTA - Cook Image */}
+            {/* Adjusted to bottom-12 (3rem) to avoid mobile browser bars overlaying content */}
             <motion.a
                 href="https://www.canva.com/design/DAG5b6ITAwA/KUgpmCUEFI3XdIiM_yRQ-Q/view?utlId=h9e0291eaad#1"
                 target="_blank"
@@ -75,7 +77,7 @@ export default function Hero() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                className="absolute bottom-0 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
+                className="absolute bottom-12 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
             >
                 {/* Speech Bubble */}
                 <motion.div
