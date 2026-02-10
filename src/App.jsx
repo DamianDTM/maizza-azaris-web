@@ -13,6 +13,9 @@ function App() {
     const el = scrollRef.current;
     if (el) {
       const onWheel = (e) => {
+        // Allow vertical scrolling inside product grids
+        if (e.target.closest('.product-grid-scroll')) return;
+
         if (e.deltaY === 0) return;
         e.preventDefault();
         el.scrollTo({

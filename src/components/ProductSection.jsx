@@ -11,7 +11,7 @@ const PlaceholderIcon = () => (
 const ProductCard = ({ product, index }) => (
     <motion.div
         whileHover={{ y: -5 }}
-        className="min-w-[300px] w-[300px] md:min-w-[340px] md:w-[340px] h-[500px] bg-white rounded-[2.5rem] shadow-xl overflow-hidden flex flex-col relative group"
+        className="w-full max-w-[340px] h-[480px] bg-white rounded-[2.5rem] shadow-xl overflow-hidden flex flex-col relative group"
     >
         {/* Top Image Section (60%) */}
         <div className="h-[60%] relative bg-gray-50">
@@ -89,21 +89,23 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
                     </h2>
                 </div>
 
-                {/* Horizontal Scroll Area for Cards */}
-                <div className="flex-grow overflow-x-auto overflow-y-hidden pb-12 flex gap-8 items-center px-4 snap-x pr-20 no-scrollbar">
-                    {products.map((p, index) => (
-                        <div key={index} className="snap-center h-full flex flex-col justify-center">
-                            <ProductCard product={p} index={index} />
-                        </div>
-                    ))}
-
-                    {/* View More Card */}
-                    <div className="snap-center min-w-[200px] h-[500px] flex items-center justify-center">
-                        <a href="#contact" className={`group flex flex-col items-center gap-4 ${isDark ? "text-white" : "text-secondary"}`}>
-                            <div className="w-24 h-24 rounded-full border-2 border-current flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all transform group-hover:scale-110">
-                                <span className="material-icons text-4xl">arrow_forward</span>
+                {/* Vertical Scroll Grid Area for Cards */}
+                <div className="product-grid-scroll flex-grow overflow-y-auto overflow-x-hidden pb-12 px-4 no-scrollbar">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20 max-w-[1200px] mx-auto">
+                        {products.map((p, index) => (
+                            <div key={index} className="flex justify-center">
+                                <ProductCard product={p} index={index} />
                             </div>
-                            <span className="font-bold tracking-[0.3em] uppercase text-sm">Ver Todo</span>
+                        ))}
+                    </div>
+
+                    {/* View More Link (Bottom of Grid) */}
+                    <div className="w-full flex justify-center mt-8 pb-8">
+                        <a href="#contact" className={`group flex flex-col items-center gap-2 ${isDark ? "text-white" : "text-secondary"}`}>
+                            <div className="w-16 h-16 rounded-full border-2 border-current flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all transform group-hover:scale-110">
+                                <span className="material-icons text-2xl">arrow_downward</span>
+                            </div>
+                            <span className="font-bold tracking-[0.2em] uppercase text-xs">Ver Más</span>
                         </a>
                     </div>
                 </div>
