@@ -54,15 +54,7 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
-            >
-                <span className="text-xs uppercase tracking-widest">Desliza</span>
-                <span className="material-icons">arrow_downward</span>
-            </motion.div>
+
 
             {/* Catering CTA - Cook Image */}
             <motion.a

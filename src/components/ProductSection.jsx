@@ -110,6 +110,17 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
                     </div>
                 </div>
             </div>
-        </section>
+
+
+            {/* Scroll Indicator (Only shows if content likely overflows) */}
+            {
+                products.length > 3 && (
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-1 pointer-events-none opacity-60 animate-bounce">
+                        <span className={`text-[10px] uppercase tracking-widest ${isDark ? 'text-accent' : 'text-primary'}`}>Desliza</span>
+                        <span className={`material-icons text-sm ${isDark ? 'text-accent' : 'text-primary'}`}>keyboard_arrow_down</span>
+                    </div>
+                )
+            }
+        </section >
     );
 }
