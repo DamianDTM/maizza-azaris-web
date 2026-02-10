@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import cocineraImg from '../assets/cocinera.webp';
 
@@ -9,8 +9,45 @@ const Sparkle = ({ className }) => (
 );
 
 export default function Hero() {
+    // Generate white confetti particles
+    const confetti = useMemo(() => Array.from({ length: 40 }).map((_, i) => ({
+        id: i,
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        size: Math.random() * 4 + 3, // 3-7px
+        opacity: Math.random() * 0.4 + 0.1,
+        rotation: Math.random() * 360,
+        duration: Math.random() * 5 + 5,
+    })), []);
+
     return (
         <section id="hero" className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-primary text-background">
+            {/* White Confetti Particles */}
+            {confetti.map((particle) => (
+                <motion.div
+                    key={particle.id}
+                    className="absolute bg-white rounded-[1px] pointer-events-none"
+                    initial={{
+                        top: particle.top,
+                        left: particle.left,
+                        width: particle.size,
+                        height: particle.size,
+                        opacity: particle.opacity,
+                        rotate: particle.rotation,
+                    }}
+                    animate={{
+                        y: [0, -15, 0],
+                        rotate: [particle.rotation, particle.rotation + 45, particle.rotation],
+                        opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity],
+                    }}
+                    transition={{
+                        duration: particle.duration,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+            ))}
+
             {/* Decorative Blobs */}
             <div className="absolute top-0 right-0 w-[50vh] h-[50vh] bg-accent/20 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3" />
             <div className="absolute bottom-0 left-0 w-[40vh] h-[40vh] bg-secondary/10 rounded-full blur-[80px] transform -translate-x-1/3 translate-y-1/3" />
@@ -43,6 +80,7 @@ export default function Hero() {
                     <h2 className="text-lg md:text-2xl font-sans tracking-[0.2em] font-bold mb-4 uppercase">Catálogo</h2>
                     <h2 className="text-lg md:text-2xl font-sans tracking-[0.2em] font-bold mb-2 uppercase">de Postres</h2>
 
+                    {/* Logo Stacked Layout (Robust Flexbox) */}
                     <h1 className="flex flex-col items-center justify-center mb-4">
                         <span className="font-display text-[4rem] md:text-[8rem] leading-none tracking-tighter text-white relative z-10">
                             aza
@@ -80,7 +118,6 @@ export default function Hero() {
             </motion.div>
 
             {/* Catering CTA - Desktop Only (Hidden on Mobile) */}
-            {/* Scaled down to 75% of previous size */}
             <motion.a
                 href="https://www.canva.com/design/DAG5b6ITAwA/KUgpmCUEFI3XdIiM_yRQ-Q/view?utlId=h9e0291eaad#1"
                 target="_blank"
