@@ -56,6 +56,16 @@ export default function Hero() {
 
 
 
+            {/* Horizontal Scroll Indicator */}
+            <motion.div
+                animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
+            >
+                <span className="text-xs uppercase tracking-widest">Desliza</span>
+                <span className="material-icons rotate-0">arrow_forward</span>
+            </motion.div>
+
             {/* Catering CTA - Cook Image */}
             <motion.a
                 href="https://www.canva.com/design/DAG5b6ITAwA/KUgpmCUEFI3XdIiM_yRQ-Q/view?utlId=h9e0291eaad#1"
