@@ -2,14 +2,44 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Navbar() {
+    const [activeSection, setActiveSection] = React.useState('');
+
     const handleNavClick = (e, targetId) => {
         e.preventDefault();
         const element = document.querySelector(targetId);
         if (element) {
-            // Smooth scroll for horizontal layout
             element.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
         }
     };
+
+    React.useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // threshold 0.5 means when 50% of the section is visible
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { root: null, threshold: 0.5 }
+        );
+
+        const sections = ['hero', 'mini-antojos', 'cuchareables', 'kekes', 'contact'];
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    const navItems = [
+        { name: 'Mini Antojos', id: 'mini-antojos' },
+        { name: 'Cuchareables', id: 'cuchareables' },
+        { name: 'Kekes', id: 'kekes' },
+        { name: 'Contacto', id: 'contact' },
+    ];
 
     return (
         <motion.nav
@@ -31,28 +61,28 @@ export default function Navbar() {
                 </a>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8 font-medium text-secondary/80 text-sm">
-                    {['Mini Antojos', 'Cuchareables', 'Kekes'].map((item, i) => {
-                        const targetId = `#${item.toLowerCase().replace(' ', '-')}`;
+                <div className="hidden md:flex items-center gap-2 font-medium text-sm">
+                    {navItems.map((item) => {
+                        const isActive = activeSection === item.id;
                         return (
                             <a
-                                key={i}
-                                href={targetId}
-                                onClick={(e) => handleNavClick(e, targetId)}
-                                className="relative group hover:text-primary transition-colors py-1 cursor-pointer"
+                                key={item.id}
+                                href={`#${item.id}`}
+                                onClick={(e) => handleNavClick(e, `#${item.id}`)}
+                                className={`relative px-4 py-2 rounded-full transition-colors duration-300 ${isActive ? 'text-primary font-bold' : 'text-secondary/80 hover:text-primary'
+                                    }`}
                             >
-                                {item}
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent/80 transition-all duration-300 group-hover:w-full"></span>
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="navbar-indicator"
+                                        className="absolute inset-0 bg-primary/10 rounded-full"
+                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                    />
+                                )}
+                                <span className="relative z-10">{item.name}</span>
                             </a>
                         );
                     })}
-                    <a
-                        href="#contact"
-                        onClick={(e) => handleNavClick(e, '#contact')}
-                        className="hover:text-primary transition-colors cursor-pointer"
-                    >
-                        Contacto
-                    </a>
                 </div>
 
                 {/* CTA Button */}
