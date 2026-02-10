@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import cocineraImg from '../assets/cocinera.webp';
+import WhiteConfetti from './WhiteConfetti';
 
 const Sparkle = ({ className }) => (
     <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -9,44 +10,10 @@ const Sparkle = ({ className }) => (
 );
 
 export default function Hero() {
-    // Generate white confetti particles
-    const confetti = useMemo(() => Array.from({ length: 40 }).map((_, i) => ({
-        id: i,
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        size: Math.random() * 4 + 3, // 3-7px
-        opacity: Math.random() * 0.4 + 0.1,
-        rotation: Math.random() * 360,
-        duration: Math.random() * 5 + 5,
-    })), []);
-
     return (
         <section id="hero" className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-primary text-background">
-            {/* White Confetti Particles */}
-            {confetti.map((particle) => (
-                <motion.div
-                    key={particle.id}
-                    className="absolute bg-white rounded-[1px] pointer-events-none"
-                    initial={{
-                        top: particle.top,
-                        left: particle.left,
-                        width: particle.size,
-                        height: particle.size,
-                        opacity: particle.opacity,
-                        rotate: particle.rotation,
-                    }}
-                    animate={{
-                        y: [0, -15, 0],
-                        rotate: [particle.rotation, particle.rotation + 45, particle.rotation],
-                        opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity],
-                    }}
-                    transition={{
-                        duration: particle.duration,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                />
-            ))}
+            {/* White Confetti Background */}
+            <WhiteConfetti />
 
             {/* Decorative Blobs */}
             <div className="absolute top-0 right-0 w-[50vh] h-[50vh] bg-accent/20 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3" />
