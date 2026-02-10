@@ -3,43 +3,64 @@ import { motion } from 'framer-motion';
 
 // Icons for placeholders if no image provided
 const PlaceholderIcon = () => (
-    <div className="w-full h-48 bg-secondary/5 flex items-center justify-center text-secondary/20">
-        <span className="material-icons text-4xl">cake</span>
+    <div className="w-full h-full bg-secondary/5 flex items-center justify-center text-secondary/20">
+        <span className="material-icons text-6xl">cake</span>
     </div>
 );
 
-const ProductCard = ({ product }) => (
+const ProductCard = ({ product, index }) => (
     <motion.div
-        whileHover={{ y: -10 }}
-        className="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] bg-white rounded-[2rem] shadow-xl overflow-hidden flex flex-col h-full border border-secondary/5 relative"
+        whileHover={{ y: -5 }}
+        className="min-w-[300px] w-[300px] md:min-w-[340px] md:w-[340px] h-[500px] bg-white rounded-[2.5rem] shadow-xl overflow-hidden flex flex-col relative group"
     >
-        {/* Image Placeholder - In a real app we'd map real images */}
-        <div className="relative h-48 overflow-hidden bg-gray-100">
+        {/* Top Image Section (60%) */}
+        <div className="h-[60%] relative bg-gray-50">
             {product.img ? (
                 <img
                     src={product.img}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
             ) : (
                 <PlaceholderIcon />
             )}
 
-            {/* Price Tag */}
-            <div className="absolute top-4 right-4 bg-primary text-white font-bold px-3 py-1 rounded-full shadow-md text-sm">
-                {product.price}
+            {/* Seasonal Tag */}
+            <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-secondary uppercase">Seasonal</span>
             </div>
+
+            {/* Floating Action Button */}
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute -bottom-6 left-8 w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white shadow-lg shadow-accent/30 z-10"
+            >
+                <span className="material-icons text-2xl">add</span>
+            </motion.button>
         </div>
 
-        <div className="p-6 flex flex-col flex-grow">
-            <h3 className="font-display text-xl text-primary mb-2 uppercase tracking-wide">{product.name}</h3>
-            <p className="text-secondary/70 text-sm mb-4 flex-grow font-sans leading-relaxed">
-                {product.description}
-            </p>
+        {/* Bottom Content Section */}
+        <div className="flex-grow p-8 pt-10 flex flex-col relative bg-white">
+            {/* Background Number */}
+            <div className="absolute bottom-4 right-4 text-[8rem] leading-none font-display font-bold text-secondary/5 pointer-events-none select-none">
+                {String(index + 1).padStart(2, '0')}
+            </div>
 
-            <button className="w-full py-2 rounded-xl bg-background border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all text-sm uppercase tracking-wider">
-                Agregar
-            </button>
+            <div className="flex justify-between items-start mb-2 relative z-10">
+                <div>
+                    <h3 className="font-display text-2xl text-secondary leading-tight">{product.name}</h3>
+                    <span className="font-serif italic text-secondary/60 text-lg">Delicious</span>
+                </div>
+                <span className="font-display text-2xl text-secondary">{product.price}</span>
+            </div>
+
+            <div className="mt-auto relative z-10">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-accent uppercase block mb-2">HAND-CRAFTED</span>
+                <p className="text-secondary/70 text-sm font-sans line-clamp-2 leading-relaxed">
+                    {product.description}
+                </p>
+            </div>
         </div>
     </motion.div>
 );
@@ -59,30 +80,30 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
             </div>
 
             <div className="z-10 w-full max-w-[1400px] mx-auto h-[85%] flex flex-col">
-                <div className="mb-8">
+                <div className="mb-8 pl-4">
                     {subtitle && <span className="font-script text-2xl opacity-80 block mb-2">{subtitle}</span>}
                     <h2 className={`font-display text-5xl md:text-7xl ${titleClass} inline-block relative`}>
                         {title}
                         {/* Underline Decor */}
-                        <span className="absolute -bottom-2 left-0 w-1/2 h-2 bg-accent/30 rounded-full"></span>
+                        <span className="absolute -bottom-2 left-0 w-1/3 h-1.5 bg-accent/30 rounded-full"></span>
                     </h2>
                 </div>
 
                 {/* Horizontal Scroll Area for Cards */}
-                <div className="flex-grow overflow-x-auto overflow-y-hidden pb-8 flex gap-8 items-center px-4 snap-x pr-20">
+                <div className="flex-grow overflow-x-auto overflow-y-hidden pb-12 flex gap-8 items-center px-4 snap-x pr-20 no-scrollbar">
                     {products.map((p, index) => (
                         <div key={index} className="snap-center h-full flex flex-col justify-center">
-                            <ProductCard product={p} />
+                            <ProductCard product={p} index={index} />
                         </div>
                     ))}
 
                     {/* View More Card */}
-                    <div className="snap-center min-w-[200px] flex items-center justify-center">
+                    <div className="snap-center min-w-[200px] h-[500px] flex items-center justify-center">
                         <a href="#contact" className={`group flex flex-col items-center gap-4 ${isDark ? "text-white" : "text-secondary"}`}>
-                            <div className="w-20 h-20 rounded-full border-2 border-current flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all">
-                                <span className="material-icons text-3xl">arrow_forward</span>
+                            <div className="w-24 h-24 rounded-full border-2 border-current flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all transform group-hover:scale-110">
+                                <span className="material-icons text-4xl">arrow_forward</span>
                             </div>
-                            <span className="font-bold tracking-widest uppercase text-sm">Ver Todo</span>
+                            <span className="font-bold tracking-[0.3em] uppercase text-sm">Ver Todo</span>
                         </a>
                     </div>
                 </div>
