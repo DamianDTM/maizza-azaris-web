@@ -10,7 +10,7 @@ const Sparkle = ({ className }) => (
 
 export default function Hero() {
     return (
-        <section id="hero" className="w-full min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-primary text-background">
+        <section id="hero" className="w-screen min-h-[100svh] flex items-center justify-center relative overflow-hidden bg-primary text-background">
             {/* Decorative Blobs */}
             <div className="absolute top-0 right-0 w-[50vh] h-[50vh] bg-accent/20 rounded-full blur-[100px] transform translate-x-1/3 -translate-y-1/3" />
             <div className="absolute bottom-0 left-0 w-[40vh] h-[40vh] bg-secondary/10 rounded-full blur-[80px] transform -translate-x-1/3 translate-y-1/3" />
@@ -43,11 +43,9 @@ export default function Hero() {
                     <h2 className="text-lg md:text-2xl font-sans tracking-[0.2em] font-bold mb-4 uppercase">Catálogo</h2>
                     <h2 className="text-lg md:text-2xl font-sans tracking-[0.2em] font-bold mb-2 uppercase">de Postres</h2>
 
-                    <h1 className="font-display text-[3.5rem] md:text-[8rem] leading-[0.8] tracking-tighter mb-4 text-white">
-                        aza<br />
-                        <span className="font-script text-[4.5rem] md:text-[9rem] relative block transform -translate-y-4">
-                            RiS
-                        </span>
+                    <h1 className="font-display text-[3.5rem] md:text-[8rem] leading-none tracking-tighter mb-4 text-white flex items-center justify-center gap-1">
+                        aza
+                        <span className="font-script text-[4rem] md:text-[9rem] relative top-2">RiS</span>
                     </h1>
 
                     <p className="font-script text-lg md:text-4xl text-background/90 mt-4">pastelería</p>
@@ -71,7 +69,7 @@ export default function Hero() {
             <motion.div
                 animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
+                className="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-2 text-background/80 pointer-events-none"
             >
                 <span className="text-xs uppercase tracking-widest">Desliza</span>
                 <span className="material-icons rotate-0">arrow_forward</span>
