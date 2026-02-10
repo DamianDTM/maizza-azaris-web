@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Contact() {
     return (
-        <section id="contact" className="w-screen h-screen bg-primary flex items-center justify-center relative relative px-6">
+        <section id="contact" className="w-screen min-h-[100svh] bg-primary flex items-center justify-center relative overflow-hidden px-6 py-20">
 
             <div className="bg-background rounded-[2rem] md:rounded-[3rem] p-6 md:p-20 max-w-4xl w-full shadow-2xl text-center relative overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-500 mx-4">
 

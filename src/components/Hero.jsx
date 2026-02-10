@@ -60,7 +60,7 @@ export default function Hero() {
             <motion.div
                 animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
+                className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-background/80"
             >
                 <span className="text-xs uppercase tracking-widest">Desliza</span>
                 <span className="material-icons rotate-0">arrow_forward</span>
@@ -75,7 +75,7 @@ export default function Hero() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                className="absolute -bottom-8 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
+                className="absolute bottom-0 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
             >
                 {/* Speech Bubble */}
                 <motion.div
