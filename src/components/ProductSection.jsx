@@ -80,13 +80,13 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
             </div>
 
             <div className="z-10 w-full max-w-[1400px] mx-auto h-[85%] flex flex-col">
-                <div className="mb-4 md:mb-8 pl-2 md:pl-4">
-                    {subtitle && <span className="font-script text-xl md:text-2xl opacity-80 block mb-2">{subtitle}</span>}
+                <div className="mb-4 md:mb-8 pl-2 md:pl-4 flex flex-col md:flex-row md:items-baseline md:gap-6">
                     <h2 className={`font-display text-4xl md:text-7xl ${titleClass} inline-block relative leading-tight`}>
                         {title}
                         {/* Underline Decor */}
                         <span className="absolute -bottom-2 left-0 w-1/3 h-1.5 bg-accent/30 rounded-full"></span>
                     </h2>
+                    {subtitle && <span className="font-script text-2xl md:text-3xl opacity-80 mt-1 md:mt-0">{subtitle}</span>}
                 </div>
 
                 {/* Vertical Scroll Grid Area for Cards */}

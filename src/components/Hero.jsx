@@ -21,7 +21,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="relative"
+                    className="relative flex flex-col items-center"
                 >
                     {/* Sparkles Positioned absolutely relative to text */}
                     <motion.div
@@ -51,6 +51,19 @@ export default function Hero() {
                     </h1>
 
                     <p className="font-script text-lg md:text-4xl text-background/90 mt-4">pastelería</p>
+
+                    {/* Mobile Only Catering Link (Below Text) */}
+                    <motion.a
+                        href="https://www.canva.com/design/DAG5b6ITAwA/KUgpmCUEFI3XdIiM_yRQ-Q/view?utlId=h9e0291eaad#1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="md:hidden mt-10 bg-white/20 backdrop-blur-md border border-white/30 px-6 py-2.5 rounded-full flex items-center gap-2 text-white shadow-lg animate-pulse hover:animate-none transition-all"
+                    >
+                        <span className="font-sans text-xs uppercase tracking-widest font-bold">¡Ofrecemos Catering! ✨</span>
+                        <span className="material-icons text-sm">open_in_new</span>
+                    </motion.a>
                 </motion.div>
             </div>
 
@@ -64,7 +77,8 @@ export default function Hero() {
                 <span className="material-icons rotate-0">arrow_forward</span>
             </motion.div>
 
-            {/* Catering CTA - Cook Image */}
+            {/* Catering CTA - Desktop Only (Hidden on Mobile) */}
+            {/* Scaled down to 75% of previous size */}
             <motion.a
                 href="https://www.canva.com/design/DAG5b6ITAwA/KUgpmCUEFI3XdIiM_yRQ-Q/view?utlId=h9e0291eaad#1"
                 target="_blank"
@@ -73,25 +87,25 @@ export default function Hero() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1, duration: 0.8 }}
                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                className="absolute bottom-0 right-4 md:right-10 z-20 flex flex-col items-end group cursor-pointer"
+                className="hidden md:flex absolute bottom-0 right-10 z-20 flex-col items-end group cursor-pointer"
             >
-                {/* Speech Bubble */}
+                {/* Speech Bubble - Scaled Down */}
                 <motion.div
                     whileHover={{ y: -5, transition: { duration: 0.1 } }}
-                    className="mr-20 mb-0 translate-y-4 bg-white/90 backdrop-blur-md text-secondary px-4 py-3 rounded-2xl rounded-tr-sm shadow-xl max-w-[160px] md:max-w-[250px] relative transform origin-bottom-right transition-all duration-100"
+                    className="mr-16 mb-0 translate-y-4 bg-white/90 backdrop-blur-md text-secondary px-5 py-3 rounded-2xl rounded-tr-sm shadow-xl max-w-[180px] relative transform origin-bottom-right transition-all duration-100"
                 >
-                    <p className="font-sans italic text-xs md:text-base leading-snug">
+                    <p className="font-sans italic text-sm leading-snug">
                         ¡También ofrecemos <strong>catering</strong> para tu día especial! ✨
                     </p>
                     {/* Bubble Tail */}
                     <div className="absolute -bottom-2 right-4 w-4 h-4 bg-white/90 backdrop-blur-md rotate-45 transform translate-x-1/2"></div>
                 </motion.div>
 
-                {/* Cook Image */}
+                {/* Cook Image - Scaled Down (w-36 approx 144px) */}
                 <img
                     src={cocineraImg}
                     alt="Nuestra Cocinera"
-                    className="w-24 md:w-48 lg:w-56 object-contain drop-shadow-2xl filter brightness-110 contrast-110"
+                    className="w-36 object-contain drop-shadow-2xl filter brightness-110 contrast-110"
                 />
             </motion.a>
         </section>
