@@ -89,14 +89,17 @@ export default function Navbar() {
 
                 {/* Mobile Menu Toggle & CTA */}
                 <div className="flex items-center gap-2">
-                    <motion.button
+                    <motion.a
+                        href="https://wa.me/51921636936?text=Quiero%20pedir%20una%20orden"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-primary text-white px-5 py-2 rounded-full font-bold text-xs md:text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-primary/90 transition-all tracking-wide uppercase flex items-center gap-2"
                     >
                         <span className="material-icons text-sm">shopping_bag</span>
                         <span className="hidden sm:inline">Pedir Ahora</span>
-                    </motion.button>
+                    </motion.a>
 
                     {/* Hamburger Button */}
                     <button
