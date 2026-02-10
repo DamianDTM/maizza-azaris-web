@@ -91,7 +91,7 @@ export default function ProductSection({ id, title, subtitle, products, theme = 
 
                 {/* Vertical Scroll Grid Area for Cards */}
                 <div className="product-grid-scroll flex-grow overflow-y-auto overflow-x-hidden pb-12 px-4 no-scrollbar">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20 max-w-[1200px] mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20 pb-20 max-w-[1200px] mx-auto">
                         {products.map((p, index) => (
                             <div key={index} className="flex justify-center">
                                 <ProductCard product={p} index={index} />
