@@ -78,13 +78,13 @@ export default function Hero() {
                 {/* Speech Bubble */}
                 <motion.div
                     whileHover={{ y: -5, transition: { duration: 0.1 } }}
-                    className="mr-8 mb-2 bg-white text-secondary px-6 py-4 rounded-[2rem] rounded-br-none shadow-xl border-2 border-accent/20 max-w-[200px] md:max-w-[250px] relative transition-all duration-100"
+                    className="mr-24 mb-0 translate-y-4 bg-white/90 backdrop-blur-md text-secondary px-6 py-4 rounded-2xl rounded-tr-sm shadow-xl max-w-[200px] md:max-w-[250px] relative transform origin-bottom-right transition-all duration-100"
                 >
                     <p className="font-sans italic text-sm md:text-base leading-snug">
                         ¡También ofrecemos <strong>catering</strong> para tu día especial! ✨
                     </p>
                     {/* Bubble Tail */}
-                    <div className="absolute -bottom-[2px] right-0 w-6 h-6 bg-white border-r-2 border-b-2 border-accent/20 rounded-br-full"></div>
+                    <div className="absolute -bottom-2 right-4 w-4 h-4 bg-white/90 backdrop-blur-md rotate-45 transform translate-x-1/2"></div>
                 </motion.div>
 
                 {/* Cook Image */}
