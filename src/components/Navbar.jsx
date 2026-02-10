@@ -55,9 +55,9 @@ export default function Navbar() {
                 <a
                     href="#hero"
                     onClick={(e) => handleNavClick(e, '#hero')}
-                    className="flex items-center gap-1 group"
+                    className="flex items-center gap-1 group shrink-0"
                 >
-                    <h1 className="font-display text-2xl text-primary tracking-tight group-hover:scale-105 transition-transform">
+                    <h1 className="font-display text-2xl text-primary tracking-tight group-hover:scale-105 transition-transform whitespace-nowrap">
                         aza<span className="font-script text-3xl ml-1">RiS</span>
                     </h1>
                 </a>

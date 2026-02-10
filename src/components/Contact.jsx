@@ -32,11 +32,10 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex md:inline-flex items-center justify-between gap-4 bg-secondary text-background px-6 py-3 md:px-8 md:py-4 rounded-full text-lg md:text-xl font-bold shadow-lg max-w-full whitespace-nowrap mx-auto min-w-[280px] md:min-w-[320px]"
+                    className="relative flex items-center justify-center bg-secondary text-background px-6 py-3 md:px-8 md:py-4 rounded-full text-lg md:text-xl font-bold shadow-lg w-full max-w-[320px] mx-auto min-w-[280px]"
                 >
-                    <span className="material-icons text-xl md:text-2xl">chat</span>
-                    <span className="text-center flex-grow">921 636 936</span>
-                    <span className="material-icons text-xl md:text-2xl opacity-0">chat</span>
+                    <span className="material-icons text-xl md:text-2xl absolute left-6 md:left-8">chat</span>
+                    <span className="text-center">921 636 936</span>
                 </motion.a>
 
                 <p className="mt-8 md:mt-12 text-secondary/60 text-[10px] md:text-xs leading-relaxed px-4">
