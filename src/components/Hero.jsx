@@ -40,17 +40,17 @@ export default function Hero() {
                         <Sparkle className="w-8 h-8" />
                     </motion.div>
 
-                    <h2 className="text-xl md:text-2xl font-sans tracking-[0.2em] font-bold mb-4 uppercase">Catálogo</h2>
-                    <h2 className="text-xl md:text-2xl font-sans tracking-[0.2em] font-bold mb-2 uppercase">de Postres</h2>
+                    <h2 className="text-lg md:text-2xl font-sans tracking-[0.2em] font-bold mb-4 uppercase">Catálogo</h2>
+                    <h2 className="text-lg md:text-2xl font-sans tracking-[0.2em] font-bold mb-2 uppercase">de Postres</h2>
 
-                    <h1 className="font-display text-[5rem] md:text-[8rem] leading-[0.8] tracking-tighter mb-4 text-white">
+                    <h1 className="font-display text-[3.5rem] md:text-[8rem] leading-[0.8] tracking-tighter mb-4 text-white">
                         aza<br />
-                        <span className="font-script text-[6rem] md:text-[9rem] relative block transform -translate-y-4">
+                        <span className="font-script text-[4.5rem] md:text-[9rem] relative block transform -translate-y-4">
                             RiS
                         </span>
                     </h1>
 
-                    <p className="font-script text-2xl md:text-4xl text-background/90 mt-4">pastelería</p>
+                    <p className="font-script text-lg md:text-4xl text-background/90 mt-4">pastelería</p>
                 </motion.div>
             </div>
 
@@ -78,9 +78,9 @@ export default function Hero() {
                 {/* Speech Bubble */}
                 <motion.div
                     whileHover={{ y: -5, transition: { duration: 0.1 } }}
-                    className="mr-24 mb-0 translate-y-4 bg-white/90 backdrop-blur-md text-secondary px-6 py-4 rounded-2xl rounded-tr-sm shadow-xl max-w-[200px] md:max-w-[250px] relative transform origin-bottom-right transition-all duration-100"
+                    className="mr-20 mb-0 translate-y-4 bg-white/90 backdrop-blur-md text-secondary px-4 py-3 rounded-2xl rounded-tr-sm shadow-xl max-w-[160px] md:max-w-[250px] relative transform origin-bottom-right transition-all duration-100"
                 >
-                    <p className="font-sans italic text-sm md:text-base leading-snug">
+                    <p className="font-sans italic text-xs md:text-base leading-snug">
                         ¡También ofrecemos <strong>catering</strong> para tu día especial! ✨
                     </p>
                     {/* Bubble Tail */}
@@ -91,7 +91,7 @@ export default function Hero() {
                 <img
                     src={cocineraImg}
                     alt="Nuestra Cocinera"
-                    className="w-32 md:w-48 lg:w-56 object-contain drop-shadow-2xl filter brightness-110 contrast-110"
+                    className="w-24 md:w-48 lg:w-56 object-contain drop-shadow-2xl filter brightness-110 contrast-110"
                 />
             </motion.a>
         </section>
